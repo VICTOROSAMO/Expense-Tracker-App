@@ -7,7 +7,10 @@ android {
     namespace 'com.osamo.expensetrackingapp'
     compileSdk 33
 
+    dataBinding{
 
+        enabled = true
+    }
 
     defaultConfig {
         applicationId "com.osamo.expensetrackingapp"
@@ -19,13 +22,13 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    signingConfigs {
+   /* signingConfigs {
         release {
             storeFile file("C:\\Users\\Public\\Documents\\mykeystore.jks")
             storePassword "1Springbut?"
             keyAlias "Key0"
             keyPassword "16131613"
-        }
+        }*/
 
 
         buildTypes {
@@ -34,7 +37,7 @@ android {
                 debuggable true
             }
             release {
-                signingConfig signingConfigs.release
+                //signingConfig signingConfigs.release
                 minifyEnabled true
                 shrinkResources true
                 multiDexEnabled true
@@ -92,4 +95,4 @@ dependencies {
 dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart-Realm:v3.0.3@aar'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
-}}
+}

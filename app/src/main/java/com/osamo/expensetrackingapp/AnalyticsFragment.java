@@ -56,13 +56,10 @@ public class AnalyticsFragment extends Fragment  {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 float totalIncome = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Float amount = snapshot.child("amount").getValue(Float.class);
-                    if (amount != null) {
-                        totalIncome += amount.floatValue();
+                    Log.d("AnalyticsFragment", "myObject is " + snapshot);
 
-                    } else{
-                       // totalIncome += amount.floatValue();
-                    }
+                    float amount = snapshot.child("amount").getValue(Float.class);
+                    totalIncome += amount;
                 }
                 // do something with the total income
 
@@ -77,11 +74,8 @@ public class AnalyticsFragment extends Fragment  {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         float totalExpense = 0;
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            Float amount = snapshot.child("amount").getValue(Float.class);
-                            //if (amount != null) {
-                                totalExpense += amount.floatValue();
-
-                            // }
+                            float amount = snapshot.child("amount").getValue(Float.class);
+                            totalExpense += amount;
                         }
                         // do something with the total expense
 
@@ -113,6 +107,7 @@ public class AnalyticsFragment extends Fragment  {
                 Log.d(TAG, databaseError.getMessage());
             }
         });
+
 
 
 

@@ -46,10 +46,7 @@ public class IncomeFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
 
         FirebaseUser mUser = mAuth.getCurrentUser();
-        if (mUser == null) {
-            // handle the case where the user is not authenticated
-            return myView;
-        }
+
         String uid = mUser.getUid();
 
         mIncomeDb = FirebaseDatabase.getInstance().getReference().child("IncomeData").child(uid);
